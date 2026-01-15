@@ -1,0 +1,27 @@
+{% extends 'toolkit/docs/_base_component.md.twig' %}
+
+{% block component_preview %}
+    {{ toolkit_code_example('shadcn', 'item', 'Demo') }}
+{% endblock %}
+
+{% block examples %}
+
+### Default
+{{ toolkit_code_example('shadcn', 'item', 'Default', { height: '400px' }) }}
+
+### Variants
+{{ toolkit_code_example('shadcn', 'item', 'Variants', { height: '400px' }) }}
+
+### Size
+{{ toolkit_code_example('shadcn', 'item', 'Size', { height: '400px' }) }}
+
+### Icon
+{{ toolkit_code_example('shadcn', 'item', 'Icon') }}
+
+### Avatar
+{{ toolkit_code_example('shadcn', 'item', 'Avatar', { height: '400px' }) }}
+
+### Link
+{{ toolkit_code_example('shadcn', 'item', 'Link', { height: '400px' }) }}
+
+{% endblock %}

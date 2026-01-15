@@ -1,0 +1,24 @@
+{% extends 'toolkit/docs/_base_component.md.twig' %}
+
+{% block component_preview %}
+    {{ toolkit_code_example('shadcn', 'input', 'Demo') }}
+{% endblock %}
+
+{% block examples %}
+
+### Default
+{{ toolkit_code_example('shadcn', 'input', 'Default') }}
+
+### File
+{{ toolkit_code_example('shadcn', 'input', 'File') }}
+
+### Disabled
+{{ toolkit_code_example('shadcn', 'input', 'Disabled') }}
+
+### With Label
+{{ toolkit_code_example('shadcn', 'input', 'With Label') }}
+
+### With Button
+{{ toolkit_code_example('shadcn', 'input', 'With Button') }}
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'toolkit/docs/_base_component.md.twig' %}
+
+{% block component_preview %}
+    {{ toolkit_code_example('shadcn', 'alert', 'Demo') }}
+{% endblock %}
+
+{% block examples %}
+
+### Default
+{{ toolkit_code_example('shadcn', 'alert', 'Default') }}
+
+### Destructive
+{{ toolkit_code_example('shadcn', 'alert', 'Destructive') }}
+
+{% endblock %}

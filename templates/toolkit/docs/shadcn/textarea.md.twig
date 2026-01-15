@@ -1,0 +1,21 @@
+{% extends 'toolkit/docs/_base_component.md.twig' %}
+
+{% block component_preview %}
+    {{ toolkit_code_example('shadcn', 'textarea', 'Demo') }}
+{% endblock %}
+
+{% block examples %}
+
+### Default
+{{ toolkit_code_example('shadcn', 'textarea', 'Default') }}
+
+### With default content
+{{ toolkit_code_example('shadcn', 'textarea', 'With default content') }}
+
+### With Label
+{{ toolkit_code_example('shadcn', 'textarea', 'With Label') }}
+
+### Disabled
+{{ toolkit_code_example('shadcn', 'textarea', 'Disabled') }}
+
+{% endblock %}

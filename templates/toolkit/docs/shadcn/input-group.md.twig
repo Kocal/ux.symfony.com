@@ -1,0 +1,42 @@
+{% extends 'toolkit/docs/_base_component.md.twig' %}
+
+{% block component_preview %}
+    {{ toolkit_code_example('shadcn', 'input-group', 'Demo') }}
+{% endblock %}
+
+{% block examples %}
+
+### Icon
+{{ toolkit_code_example('shadcn', 'input-group', 'Icon') }}
+
+### Trailing icon
+{{ toolkit_code_example('shadcn', 'input-group', 'Trailing icon') }}
+
+### Both icons
+{{ toolkit_code_example('shadcn', 'input-group', 'Both icons') }}
+
+### Two trailing icons
+{{ toolkit_code_example('shadcn', 'input-group', 'Two trailing icons') }}
+
+### Search with icon and shortcut
+{{ toolkit_code_example('shadcn', 'input-group', 'Search with icon and shortcut') }}
+
+### Textarea
+{{ toolkit_code_example('shadcn', 'input-group', 'Textarea') }}
+
+### Textarea with trailing icon
+{{ toolkit_code_example('shadcn', 'input-group', 'Textarea with trailing icon') }}
+
+### Textarea with character count
+{{ toolkit_code_example('shadcn', 'input-group', 'Textarea with character count', { height: '300px' }) }}
+
+### Addon with icon
+{{ toolkit_code_example('shadcn', 'input-group', 'Addon with icon') }}
+
+### Block start addon
+{{ toolkit_code_example('shadcn', 'input-group', 'Block start addon', { height: '300px' }) }}
+
+### Spinner
+{{ toolkit_code_example('shadcn', 'input-group', 'Spinner', { height: '300px' }) }}
+
+{% endblock %}

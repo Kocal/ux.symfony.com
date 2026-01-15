@@ -1,0 +1,18 @@
+{% extends 'toolkit/docs/_base_component.md.twig' %}
+
+{% block component_preview %}
+    {{ toolkit_code_example('shadcn', 'select', 'Demo') }}
+{% endblock %}
+
+{% block examples %}
+
+### Default
+{{ toolkit_code_example('shadcn', 'select', 'Default') }}
+
+### With Label
+{{ toolkit_code_example('shadcn', 'select', 'With Label') }}
+
+### Disabled
+{{ toolkit_code_example('shadcn', 'select', 'Disabled') }}
+
+{% endblock %}

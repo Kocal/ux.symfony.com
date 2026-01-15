@@ -1,0 +1,18 @@
+{% extends 'toolkit/docs/_base_component.md.twig' %}
+
+{% block component_preview %}
+    {{ toolkit_code_example('shadcn', 'aspect-ratio', 'Demo') }}
+{% endblock %}
+
+{% block examples %}
+
+### With 1 / 1 aspect ratio
+{{ toolkit_code_example('shadcn', 'aspect-ratio', 'With 1 - 1 aspect ratio', { height: '400px' }) }}
+
+### With 2 / 3 aspect ratio
+{{ toolkit_code_example('shadcn', 'aspect-ratio', 'With 2 - 3 aspect ratio', { height: '400px' }) }}
+
+### With 16 / 9 aspect ratio
+{{ toolkit_code_example('shadcn', 'aspect-ratio', 'With 16 - 9 aspect ratio', { height: '400px' }) }}
+
+{% endblock %}

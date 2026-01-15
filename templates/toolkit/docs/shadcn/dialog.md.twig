@@ -1,0 +1,18 @@
+{% extends 'toolkit/docs/_base_component.md.twig' %}
+
+{% block component_preview %}
+    {{ toolkit_code_example('shadcn', 'dialog', 'Demo') }}
+{% endblock %}
+
+{% block examples %}
+
+### Default
+{{ toolkit_code_example('shadcn', 'dialog', 'Default', { height: '500px' }) }}
+
+### Custom close button
+{{ toolkit_code_example('shadcn', 'dialog', 'Custom close button', { height: '500px' }) }}
+
+### With form
+{{ toolkit_code_example('shadcn', 'dialog', 'With form', { height: '500px' }) }}
+
+{% endblock %}

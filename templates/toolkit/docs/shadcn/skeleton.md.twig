@@ -1,0 +1,15 @@
+{% extends 'toolkit/docs/_base_component.md.twig' %}
+
+{% block component_preview %}
+    {{ toolkit_code_example('shadcn', 'skeleton', 'Demo') }}
+{% endblock %}
+
+{% block examples %}
+
+### User
+{{ toolkit_code_example('shadcn', 'skeleton', 'User') }}
+
+### Card
+{{ toolkit_code_example('shadcn', 'skeleton', 'Card', { height: '250px' }) }}
+
+{% endblock %}

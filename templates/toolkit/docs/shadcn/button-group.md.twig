@@ -1,0 +1,30 @@
+{% extends 'toolkit/docs/_base_component.md.twig' %}
+
+{% block component_preview %}
+    {{ toolkit_code_example('shadcn', 'button-group', 'Demo') }}
+{% endblock %}
+
+{% block examples %}
+
+### Default
+{{ toolkit_code_example('shadcn', 'button-group', 'Default', { height: '220px' }) }}
+
+### Orientation
+{{ toolkit_code_example('shadcn', 'button-group', 'Orientation', { height: '200px' }) }}
+
+### Size
+{{ toolkit_code_example('shadcn', 'button-group', 'Size', { height: '420px' }) }}
+
+### Input
+{{ toolkit_code_example('shadcn', 'button-group', 'Input', { height: '200px' }) }}
+
+### Nested
+{{ toolkit_code_example('shadcn', 'button-group', 'Nested', { height: '240px' }) }}
+
+### Separator
+{{ toolkit_code_example('shadcn', 'button-group', 'Separator', { height: '200px' }) }}
+
+### Split
+{{ toolkit_code_example('shadcn', 'button-group', 'Split', { height: '200px' }) }}
+
+{% endblock %}

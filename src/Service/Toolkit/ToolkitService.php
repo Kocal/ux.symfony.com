@@ -39,7 +39,6 @@ readonly class ToolkitService
     public function __construct(
         #[Autowire(service: 'ux_toolkit.registry.registry_factory')]
         private RegistryFactory $registryFactory,
-        private Filesystem $filesystem,
     ) {
     }
 
@@ -65,52 +64,9 @@ readonly class ToolkitService
         return $kits;
     }
 
-    /**
-     * @return Recipe[]
-     */
-    public function getDocumentableComponents(Kit $kit): array
-    {
-        return array_filter($kit->getRecipes(RecipeType::Component), fn (Recipe $recipe) => file_exists(Path::join($recipe->absolutePath, 'EXAMPLES.md')));
-    }
-
     public function resolveRecipePool(Kit $kit, Recipe $component): Pool
     {
         return (new PoolResolver())->resolveForRecipe($kit, $component);
-    }
-
-    /**
-     * @return non-empty-array<string, string>
-     */
-    public function extractRecipeExamples(Recipe $recipe): array
-    {
-        $examplesMdPath = Path::join($recipe->absolutePath, 'EXAMPLES.md');
-        $markdown = s($this->filesystem->readFile($examplesMdPath));
-
-        // Remove "# Examples" header
-        $markdown = $markdown->replace('# Examples', '');
-
-        // Split the markdown for each title and content
-        $examples = [];
-        foreach (explode(\PHP_EOL, $markdown) as $line) {
-            if (str_starts_with($line, '## ')) {
-                // This is a new example title
-                $title = trim(substr($line, 2));
-                $examples[$title] = '';
-            } elseif (isset($title)) {
-                // This line belongs to the last example
-                $examples[$title] .= $line.\PHP_EOL;
-            }
-        }
-
-        if ([] === $examples) {
-            throw new \LogicException(\sprintf('No examples found in "%s".', $examplesMdPath));
-        }
-
-        foreach ($examples as $title => $example) {
-            $examples[$title] = trim($example);
-        }
-
-        return $examples;
     }
 
     /**

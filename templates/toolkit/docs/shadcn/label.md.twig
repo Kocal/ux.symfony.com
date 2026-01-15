@@ -1,0 +1,18 @@
+{% extends 'toolkit/docs/_base_component.md.twig' %}
+
+{% block component_preview %}
+    {{ toolkit_code_example('shadcn', 'label', 'Demo') }}
+{% endblock %}
+
+{% block examples %}
+
+### Default
+{{ toolkit_code_example('shadcn', 'label', 'Default') }}
+
+### With Input
+{{ toolkit_code_example('shadcn', 'label', 'With Input') }}
+
+### Required Field
+{{ toolkit_code_example('shadcn', 'label', 'Required Field') }}
+
+{% endblock %}

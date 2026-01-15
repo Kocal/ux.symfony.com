@@ -1,0 +1,24 @@
+{% extends 'toolkit/docs/_base_component.md.twig' %}
+
+{% block component_preview %}
+    {{ toolkit_code_example('shadcn', 'badge', 'Demo') }}
+{% endblock %}
+
+{% block examples %}
+
+### Default
+{{ toolkit_code_example('shadcn', 'badge', 'Default') }}
+
+### Secondary
+{{ toolkit_code_example('shadcn', 'badge', 'Secondary') }}
+
+### Outline
+{{ toolkit_code_example('shadcn', 'badge', 'Outline') }}
+
+### Destructive
+{{ toolkit_code_example('shadcn', 'badge', 'Destructive') }}
+
+### With Icon
+{{ toolkit_code_example('shadcn', 'badge', 'With Icon') }}
+
+{% endblock %}
