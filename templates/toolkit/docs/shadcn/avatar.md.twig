@@ -7,3 +7,23 @@
 {% block usage %}
 {{ toolkit_code_usage(kit_id.value, component.name) }}
 {% endblock %}
+
+{% block examples %}
+### Basic
+{{ toolkit_code_example(kit_id.value, component.name, 'Basic') }}
+
+### Badge
+{{ toolkit_code_example(kit_id.value, component.name, 'Badge') }}
+
+### Badge with Icon
+{{ toolkit_code_example(kit_id.value, component.name, 'Badge with Icon') }}
+
+### Avatar Group
+{{ toolkit_code_example(kit_id.value, component.name, 'Avatar Group') }}
+
+### Avatar Group with Icon
+{{ toolkit_code_example(kit_id.value, component.name, 'Avatar Group with Icon') }}
+
+### Sizes
+{{ toolkit_code_example(kit_id.value, component.name, 'Sizes') }}
+{% endblock %}
