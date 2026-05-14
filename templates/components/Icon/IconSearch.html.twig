@@ -1,6 +1,6 @@
 <div{{ attributes }}>
 
-    <div class="IconSearchBox sticky top-0 bg-body z-2">
+    <div class="sticky top-0 bg-body z-2">
         <div class="p-6 markdown-container bg-white/75 dark:bg-black/75 shadow-blur shadow-blur--rainbow mt-12"
              style="border-radius: .75rem">
             <fieldset class="flex items-stretch gap-6 max-md:flex-wrap">
@@ -9,7 +9,7 @@
                     <label class="flex items-center px-3 bg-subtle border border-solid border-border border-e-0 rounded-s-sm" for="IconSearch-Set">
                         <twig:ux:icon name="icon-sets"/>
                     </label>
-                    <select class="flex-1 min-w-0 px-3 py-1.5 appearance-none border border-solid border-border rounded-e-sm bg-body text-body-text focus:border-link focus:[outline:revert]" data-model="set" id="IconSearch-Set">
+                    <select class="flex-1 min-w-0 px-3 py-1.5 border border-solid border-border rounded-e-sm bg-body text-body-text focus:border-link focus:[outline:revert]" data-model="set" id="IconSearch-Set">
                         <option value="">All sets</option>
                         {% for group_name, options in this.getIconSetOptionGroups() %}
                             <optgroup label="{{ group_name }}">
@@ -30,7 +30,7 @@
                         type="search"
                         data-model="query"
                         placeholder="Results update as you type..."
-                        class="flex-1 min-w-0 px-3 py-1.5 appearance-none border border-solid border-border rounded-e-sm bg-body text-body-text focus:border-link focus:[outline:revert]"
+                        class="flex-1 min-w-0 px-3 py-1.5 border border-solid border-border rounded-e-sm bg-body text-body-text focus:border-link focus:[outline:revert]"
                         id="IconSearch-Query"
                     >
                     <p class="absolute right-3 text-[0.7rem] font-stretch-semi-condensed opacity-50 m-0 top-1/2 -translate-y-1/2 max-md:top-[125%] max-md:text-[xx-small]">
