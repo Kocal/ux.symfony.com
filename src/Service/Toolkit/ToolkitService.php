@@ -19,6 +19,7 @@ use Symfony\UX\Toolkit\Installer\PoolResolver;
 use Symfony\UX\Toolkit\Kit\Kit;
 use Symfony\UX\Toolkit\Recipe\Recipe;
 use Symfony\UX\Toolkit\Registry\RegistryFactory;
+use Twig\Environment;
 
 use function Symfony\Component\String\s;
 
@@ -37,6 +38,7 @@ class ToolkitService
     public function __construct(
         #[Autowire(service: 'ux_toolkit.registry.registry_factory')]
         private RegistryFactory $registryFactory,
+        private Environment $twig,
     ) {
     }
 
@@ -65,6 +67,37 @@ class ToolkitService
     public function resolveRecipePool(Kit $kit, Recipe $component): Pool
     {
         return (new PoolResolver())->resolveForRecipe($kit, $component);
+    }
+
+    public function renderRecipeMarkdown(ToolkitKitId $kitId, Recipe $recipe, bool $isLlm = false): string
+    {
+        $kit = $this->getKit($kitId);
+        $pool = $this->resolveRecipePool($kit, $recipe);
+        $apiReference = $this->extractRecipeApiReference($recipe);
+
+        $files = [];
+        foreach ($pool->getFiles() as $recipeFullPath => $recipeFiles) {
+            foreach ($recipeFiles as $recipeFile) {
+                $recipeFileSourcePath = Path::join($recipeFullPath, $recipeFile->sourceRelativePathName);
+                $files[] = [
+                    'path_name' => $recipeFile->sourceRelativePathName,
+                    'content' => file_get_contents($recipeFileSourcePath),
+                    'language' => pathinfo($recipeFileSourcePath, \PATHINFO_EXTENSION),
+                ];
+            }
+        }
+
+        return $this->twig->render(\sprintf('toolkit/docs/%s/%s.md.twig', $kitId->value, $recipe->name), [
+            'kit_id' => $kitId,
+            'kit' => $kit,
+            'component' => $recipe,
+            'files' => $files,
+            'php_package_dependencies' => $pool->getPhpPackageDependencies(),
+            'npm_package_dependencies' => $pool->getNpmPackageDependencies(),
+            'importmap_package_dependencies' => $pool->getImportmapPackageDependencies(),
+            'api_reference' => $apiReference,
+            'is_llm' => $isLlm,
+        ]);
     }
 
     /**

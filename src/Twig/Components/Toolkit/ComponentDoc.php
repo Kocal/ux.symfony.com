@@ -13,7 +13,6 @@ namespace App\Twig\Components\Toolkit;
 
 use App\Enum\ToolkitKitId;
 use App\Service\Toolkit\ToolkitService;
-use Symfony\Component\Filesystem\Path;
 use Symfony\UX\Toolkit\Recipe\Recipe;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
@@ -25,38 +24,11 @@ final class ComponentDoc
 
     public function __construct(
         private readonly ToolkitService $toolkitService,
-        private readonly \Twig\Environment $twig,
     ) {
     }
 
     public function getMarkdownContent(): string
     {
-        $kit = $this->toolkitService->getKit($this->kitId);
-        $pool = $this->toolkitService->resolveRecipePool($kit, $this->component);
-        $apiReference = $this->toolkitService->extractRecipeApiReference($this->component);
-
-        $files = [];
-        foreach ($pool->getFiles() as $recipeFullPath => $recipeFiles) {
-            foreach ($recipeFiles as $recipeFile) {
-                $recipeFileSourcePath = Path::join($recipeFullPath, $recipeFile->sourceRelativePathName);
-                $files[] = [
-                    'path_name' => $recipeFile->sourceRelativePathName,
-                    'content' => file_get_contents($recipeFileSourcePath),
-                    'language' => pathinfo($recipeFileSourcePath, \PATHINFO_EXTENSION),
-                ];
-            }
-        }
-
-        $templateName = \sprintf('toolkit/docs/%s/%s.md.twig', $this->kitId->value, $this->component->name);
-
-        return $this->twig->render($templateName, [
-            'kit_id' => $this->kitId,
-            'component' => $this->component,
-            'files' => $files,
-            'php_package_dependencies' => $pool->getPhpPackageDependencies(),
-            'npm_package_dependencies' => $pool->getNpmPackageDependencies(),
-            'importmap_package_dependencies' => $pool->getImportmapPackageDependencies(),
-            'api_reference' => $apiReference,
-        ]);
+        return $this->toolkitService->renderRecipeMarkdown($this->kitId, $this->component);
     }
 }
