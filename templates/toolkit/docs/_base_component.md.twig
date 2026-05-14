@@ -1,5 +1,5 @@
 {# twig-cs-fixer-disable FileName.Error #}
-# {{ component.manifest.name }}
+# {{ component.manifest.name }}{% if is_llm ?? false %} ({{ kit.manifest.name }} kit){% endif %}
 
 {{ component.manifest.description }}
 
@@ -7,6 +7,16 @@
 
 ## Installation
 
+{% if is_llm ?? false %}
+{% if component.manifest.versionAdded is not null %}
+> [!NOTE]
+> Available since UX Toolkit {{ component.manifest.versionAdded }}.
+{% endif %}
+
+```shell
+bin/console ux:install {{ component.name }} --kit {{ kit_id.value }}
+```
+{% else %}
 ::: tabs
 
 :: tab Automatic
@@ -63,6 +73,7 @@ Copy the following file(s) into your Symfony app:
 Happy coding!
 
 :::
+{% endif %}
 
 {% if block('usage') is defined %}
 ## Usage

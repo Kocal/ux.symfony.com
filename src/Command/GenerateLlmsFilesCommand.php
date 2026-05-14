@@ -216,13 +216,7 @@ class GenerateLlmsFilesCommand
             $toolkitKits[] = ['kitId' => $kitId, 'kit' => $kit];
 
             foreach ($kit->getRecipes(RecipeType::Component) as $recipe) {
-                $apiRef = $this->toolkitService->extractRecipeApiReference($recipe);
-                $md = $this->twig->render('llms/toolkit_component.md.twig', [
-                    'kitId' => $kitId,
-                    'kit' => $kit,
-                    'recipe' => $recipe,
-                    'apiRef' => $apiRef,
-                ]);
+                $md = $this->toolkitService->renderRecipeMarkdown($kitId, $recipe, isLlm: true);
                 $path = $this->generateMdPath('app_toolkit_component', [
                     'kitId' => $kitId->value,
                     'componentName' => $recipe->name,

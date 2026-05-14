@@ -23,9 +23,10 @@ final class ToolkitRuntime implements RuntimeExtensionInterface
     }
 
     /**
+     * @param array<string, mixed> $context
      * @param array<string, mixed> $options
      */
-    public function codeExample(string $kitId, string $recipeName, string $exampleName, array $options = [], bool $preview = true): string
+    public function codeExample(array $context, string $kitId, string $recipeName, string $exampleName, array $options = [], bool $preview = true): string
     {
         $kitId = ToolkitKitId::from($kitId);
         $kit = $this->toolkitService->getKit($kitId);
@@ -38,6 +39,19 @@ final class ToolkitRuntime implements RuntimeExtensionInterface
 
         $exampleCode = trim(file_get_contents($exampleFile));
         $language = 'twig';
+
+        if ($context['is_llm'] ?? false) {
+            return \sprintf(
+                <<<'MARKDOWN'
+                    ```%2$s
+                    %1$s
+                    ```
+                    MARKDOWN,
+                $exampleCode,
+                $language,
+            );
+        }
+
         $options = json_encode($options + ['kit' => $kitId->value]);
 
         if ($preview) {
@@ -78,19 +92,21 @@ final class ToolkitRuntime implements RuntimeExtensionInterface
     }
 
     /**
+     * @param array<string, mixed> $context
      * @param array<string, mixed> $options
      */
-    public function codeDemo(string $kitId, string $recipeName, array $options = []): string
+    public function codeDemo(array $context, string $kitId, string $recipeName, array $options = []): string
     {
-        return $this->codeExample($kitId, $recipeName, 'Demo', $options + ['height' => '450px'], preview: true);
+        return $this->codeExample($context, $kitId, $recipeName, 'Demo', $options + ['height' => '450px'], preview: true);
     }
 
     /**
+     * @param array<string, mixed> $context
      * @param array<string, mixed> $options
      */
-    public function codeUsage(string $kitId, string $recipeName, array $options = []): string
+    public function codeUsage(array $context, string $kitId, string $recipeName, array $options = []): string
     {
-        return $this->codeExample($kitId, $recipeName, 'Usage', $options, preview: false);
+        return $this->codeExample($context, $kitId, $recipeName, 'Usage', $options, preview: false);
     }
 
     public function kitColor(string $kitId): string
