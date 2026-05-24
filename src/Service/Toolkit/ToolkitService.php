@@ -25,6 +25,9 @@ use function Symfony\Component\String\s;
 
 class ToolkitService
 {
+    /** @var array<value-of<ToolkitKitId>, Kit> */
+    private array $kits = [];
+
     /**
      * @see https://regex101.com/r/3JXNX7/1
      */
@@ -42,9 +45,9 @@ class ToolkitService
     ) {
     }
 
-    public function getKit(ToolkitKitId $kit): Kit
+    public function getKit(ToolkitKitId $kitId): Kit
     {
-        return $this->getKits()[$kit->value] ?? throw new \InvalidArgumentException(\sprintf('Kit "%s" not found', $kit->value));
+        return $this->kits[$kitId->value] ??= $this->registryFactory->getForKit($kitId->value)->getKit($kitId->value);
     }
 
     /**
@@ -52,13 +55,9 @@ class ToolkitService
      */
     public function getKits(): array
     {
-        static $kits = null;
-
-        if (null === $kits) {
-            $kits = [];
-            foreach (ToolkitKitId::cases() as $kit) {
-                $kits[$kit->value] = $this->registryFactory->getForKit($kit->value)->getKit($kit->value);
-            }
+        $kits = [];
+        foreach (ToolkitKitId::cases() as $kitId) {
+            $kits[$kitId->value] = $this->getKit($kitId);
         }
 
         return $kits;
