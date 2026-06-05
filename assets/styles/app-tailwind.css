@@ -286,6 +286,7 @@
         font-size: inherit;
         color: inherit;
         background-color: inherit;
+        padding: 0;
     }
     a > code {
         color: inherit;
