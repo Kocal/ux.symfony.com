@@ -1,3 +1,25 @@
-<div class="Wysiwyg">
-    {{ this.markdownContent|markdown_to_html }}
+<div class="flex gap-8 items-start">
+    <div class="flex-1 min-w-0 Wysiwyg">
+        {{ this.markdownContent|markdown_to_html }}
+    </div>
+
+    {% if computed.tocItems %}
+        <nav data-controller="toolkit-recipe-toc"
+             class="hidden xl:block w-48 shrink-0 sticky top-4 max-h-[calc(100vh-2rem)] overflow-y-auto text-sm" aria-label="On this page">
+            <strong class="font-semibold px-2 mb-2 text-foreground block">On this page</strong>
+            <ul class="list-unstyled space-y-1">
+                {% for item in computed.tocItems %}
+                    {% set class = item.level == 3 ? 'ml-2' %}
+                    <li
+                        class="rounded transition-colors duration-100 ease-in-out hover:bg-surface [&.active]:bg-surface {{ class }}"
+                        data-toolkit-recipe-toc-target="link"
+                    >
+                        <a href="#{{ item.id }}" class="block px-2 py-0.5 text-[.9rem]">
+                            {{ item.title|raw }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    {% endif %}
 </div>

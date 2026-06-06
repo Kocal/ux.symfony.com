@@ -288,10 +288,6 @@
         background-color: inherit;
         padding: 0;
     }
-    a > code {
-        color: inherit;
-        background-color: inherit;
-    }
 
     .code-description :is(h2, h3) {
         font-family: var(--font-title);
