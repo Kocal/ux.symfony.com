@@ -43,7 +43,7 @@
     {% if messages %}
         <div class="max-w-[1400px] mx-auto px-6 md:px-12">
             {% for message in messages %}
-                <div class="alert alert-success" data-turbo-cache="false">{{ message }}</div>
+                <twig:Alert variant="success" data-turbo-cache="false">{{ message }}</twig:Alert>
             {% endfor %}
         </div>
     {% endif %}
@@ -81,7 +81,7 @@
 {% endblock %}
 
 {% block aside %}
-    <aside style="background-color: var(--bs-secondary-bg-subtle);" class="mt-12">
+    <aside class="bg-subtle mt-12">
         <twig:Demo:PrevNext demo="{{ demo }}" />
     </aside>
 {% endblock %}

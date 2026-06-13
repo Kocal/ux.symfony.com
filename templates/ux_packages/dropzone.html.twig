@@ -31,12 +31,12 @@
 
 {% block demo_content %}
     {% for message in app.flashes('dropzone_success') %}
-        <div class="alert alert-success" data-turbo-cache="false">{{ message }}</div>
+        <twig:Alert variant="success" data-turbo-cache="false" class="mb-4">{{ message }}</twig:Alert>
     {% endfor %}
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <button type="submit" class="btn btn-primary">Upload it!</button>
+        <twig:Button variant="primary" type="submit">Upload it!</twig:Button>
     {{ form_end(form) }}
 
     <div class="flex eyebrows pt-12">

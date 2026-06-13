@@ -16,15 +16,15 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent]
 final class Alert
 {
-    public string $type = 'success';
-    public string $message;
+    public ?string $variant = null;
 
     public function getIcon(): string
     {
-        return match ($this->type) {
-            'success' => 'bi:check-circle',
+        return match ($this->variant) {
             'danger' => 'bi:exclamation-circle',
-            default => 'bi:info-circle',
+            'warning' => 'bi:exclamation-triangle',
+            'info' => 'bi:info-circle',
+            default => 'bi:check-circle',
         };
     }
 }

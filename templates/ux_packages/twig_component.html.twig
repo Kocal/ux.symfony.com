@@ -31,6 +31,25 @@
             <twig:CodeBlock
                 filename="templates/ux_packages/twig_component.html.twig"
                 :showFilename="false"
+                targetTwigBlock="alert_info_example"
+                :showTwigExtends="false"
+                height="auto"
+            />
+        </div>
+        <div class="col-span-6">
+            {% block alert_info_example %}
+                <twig:Alert variant="info">
+                    This is an informational message.
+                </twig:Alert>
+            {% endblock %}
+        </div>
+    </div>
+
+    <div class="grid grid-cols-12 gap-x-6 my-2">
+        <div class="col-span-6">
+            <twig:CodeBlock
+                filename="templates/ux_packages/twig_component.html.twig"
+                :showFilename="false"
                 targetTwigBlock="alert_success_example"
                 :showTwigExtends="false"
                 height="auto"
@@ -38,7 +57,28 @@
         </div>
         <div class="col-span-6">
             {% block alert_success_example %}
-                <twig:Alert message="I am a success alert!" />
+                <twig:Alert variant="success">
+                    Your changes were saved.
+                </twig:Alert>
+            {% endblock %}
+        </div>
+    </div>
+
+    <div class="grid grid-cols-12 gap-x-6 my-2">
+        <div class="col-span-6">
+            <twig:CodeBlock
+                filename="templates/ux_packages/twig_component.html.twig"
+                :showFilename="false"
+                targetTwigBlock="alert_warning_example"
+                :showTwigExtends="false"
+                height="auto"
+            />
+        </div>
+        <div class="col-span-6">
+            {% block alert_warning_example %}
+                <twig:Alert variant="warning">
+                    Your session will expire in a few minutes.
+                </twig:Alert>
             {% endblock %}
         </div>
     </div>
@@ -55,10 +95,9 @@
         </div>
         <div class="col-span-6">
             {% block alert_danger_example %}
-                <twig:Alert
-                    type="danger"
-                    message="Oh no! The dinos escaped!"
-                />
+                <twig:Alert variant="danger">
+                    Oh no! The dinos escaped!
+                </twig:Alert>
             {% endblock %}
         </div>
     </div>

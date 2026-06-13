@@ -10,7 +10,7 @@
         {% endblock %}
 
         {% block sub_content %}
-            Let your users crop images with <a class="text-white underline" href="https://github.com/fengyuanchen/cropperjs" rel="noopener nofollow noreferrer">Cropper.js</a>
+            Let your users crop images with <a href="https://github.com/fengyuanchen/cropperjs" rel="noopener nofollow noreferrer">Cropper.js</a>
              then grab the final image from PHP. Simple.
         {% endblock %}
     {% endcomponent %}
@@ -39,7 +39,7 @@
                 <div id="cropper-preview" style="overflow: hidden;width: 200px;height: 200px;"></div>
             </div>
         </div>
-            <button type="submit" class="btn btn-dark mt-12" style="width: 100%;">Crop it!</button>
+            <twig:Button variant="dark" type="submit" class="mt-12 w-full">Crop it!</twig:Button>
         {{ form_end(form) }}
     {% else %}
         {# show the cropped image after submit! #}

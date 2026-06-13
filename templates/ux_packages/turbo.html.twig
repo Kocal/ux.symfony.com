@@ -11,7 +11,7 @@
 
         {% block sub_content %}
             The speed of a single-page web app without writing any JavaScript,
-            courtesy of <a class="text-white underline" href="https://turbo.hotwired.dev/" rel="external noopener noreferrer">Turbo</a>
+            courtesy of <a href="https://turbo.hotwired.dev/" rel="external noopener noreferrer">Turbo</a>
 
             <div style="position: absolute;  bottom: 3rem;  left: 50%;  transform: translateX(-50%);color: white;">
                 {{ include('ux_packages/turbo/_chat_message_count.html.twig', {messageCount: this.messageCount}) }}
@@ -54,14 +54,11 @@
                                 <div class="flex justify-between">
                                     <div class="grow">
                                         {{ form_row(form.name, {
-                                            row_attr: {class: 'form-floating'},
                                             attr: {placeholder: 'Enter a name'},
                                         }) }}
                                     </div>
                                     <div class="grow ms-2">
-                                        {{ form_row(form.animal, {
-                                            row_attr: {class: 'form-floating'},
-                                        }) }}
+                                        {{ form_row(form.animal) }}
                                     </div>
                                 </div>
                                 <twig:Button variant="dark" type="submit" class="mt-12 w-full">Create!</twig:Button>
