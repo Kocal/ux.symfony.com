@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@source "../../templates/**/*.html.twig";
+@source "../controllers/**/*.js";
+@source "../react/src/**/*.jsx";
+@source "../vue/src/**/*.js";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─── Design tokens ─── */
+
+:root {
+    /* Neutral palette (ex SCSS $n-50...$n-900) */
+    --n-50: #F2F2F2;
+    --n-100: #D9D9D9;
+    --n-200: #BFBFBF;
+    --n-300: #A6A6A6;
+    --n-400: #8C8C8C;
+    --n-500: #737373;
+    --n-600: #595959;
+    --n-700: #404040;
+    --n-800: #262626;
+    --n-900: #0D0D0D;
+
+    /* Semantic colors (replaces --bs-body-bg, --bs-body-color, etc.) */
+    --color-body-bg: #fff;
+    --color-body-text: #212529;
+    --color-secondary-text: #6c757d;
+    --color-tertiary-text: #adb5bd;
+    --color-secondary-bg: #e9ecef;
+    --color-secondary-bg-subtle: #f8f9fa;
+    --color-tertiary-bg: #f8f9fa;
+    --color-border: #dadee1;
+    --color-border-subtle: #e9ecef;
+    --color-border-translucent: rgba(0, 0, 0, .175);
+    --color-code: #cf0067;
+    --color-code-bg: #ffeffa;
+    --color-link: #6ea8fe;
+
+    /* Specific colors */
+    --color-purple: #6A2DBA;
+
+    /* Spacing tokens (existing, unchanged) */
+    --space-smaller: 0.5rem;
+    --space-small: 0.75rem;
+    --space-regular: 1rem;
+    --space-large: 1.5rem;
+    --space-larger: 2rem;
+}
+
+.dark {
+    --color-body-bg: #212529;
+    --color-body-text: #dee2e6;
+    --color-secondary-text: #adb5bd;
+    --color-tertiary-text: #6c757d;
+    --color-secondary-bg: #343a40;
+    --color-secondary-bg-subtle: #2b3035;
+    --color-tertiary-bg: #2b3035;
+    --color-border: #495057;
+    --color-border-subtle: #343a40;
+    --color-border-translucent: rgba(255, 255, 255, .175);
+    --color-code: #ff79c6;
+    --color-code-bg: --alpha(var(--color-pink-500) / 10%);
+
+    --color-link: #6ea8fe;
+}
+
+@theme inline {
+    /* Semantic colors */
+    --color-body: var(--color-body-bg);
+    --color-body-text: var(--color-body-text);
+    --color-subtle: var(--color-secondary-bg-subtle);
+    --color-muted: var(--color-secondary-text);
+    --color-surface: var(--color-secondary-bg);
+    --color-border: var(--color-border);
+    --color-code: var(--color-code);
+    --color-link: var(--color-link);
+
+    /* Neutral scale */
+    --color-n-50: var(--n-50);
+    --color-n-100: var(--n-100);
+    --color-n-200: var(--n-200);
+    --color-n-300: var(--n-300);
+    --color-n-400: var(--n-400);
+    --color-n-500: var(--n-500);
+    --color-n-600: var(--n-600);
+    --color-n-700: var(--n-700);
+    --color-n-800: var(--n-800);
+    --color-n-900: var(--n-900);
+
+    /* Specific colors */
+    --color-purple: var(--color-purple);
+
+    /* Signal colors (terminal window-control palette): red = delete/error, green = success, yellow reserved */
+    --color-signal-red: #FB4040;
+    --color-signal-yellow: #FBC640;
+    --color-signal-green: #84DE2C;
+
+    --color-calendar-google: #5384ED;
+    --color-calendar-outlook: #0078D4;
+    --color-calendar-ics: #1F2937;
+
+    /* Font families */
+    --font-title: "Ubuntu Sans", "Ubuntu", system-ui, sans-serif;
+    --font-sans: system-ui, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", SFMono-Regular, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+
+    /* Custom breakpoints */
+    --breakpoint-xs: 480px;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-nav: 860px;
+    --breakpoint-lg: 980px;
+    --breakpoint-xl: 1114px;
+    --breakpoint-2xl: 1400px;
+
+    /* Animations */
+    --animate-icon-loading: icon-loading 250ms forwards;
+}
+
+@keyframes icon-loading {
+    0% { transform: scale(.95); }
+    80% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+}
+
+/* ─── Base ─── */
+@import "./base/_fonts.css";
+@import "./base/_base.css";
+@import "./base/_typography.css";
+
+/* ─── Components ─── */
+@import "./components/_container.css";
+@import "./components/_typography.css";
+@import "./components/_DemoContainer.css";
+@import "./components/_Icon.css";
+@import "./components/_ProductGrid.css";
+@import "./components/_Terminal.css";
+@import "./components/_Wysiwyg.css";
+
+/* ─── Utilities ─── */
+@import "./utilities/_arrow.css";
+@import "./utilities/_background.css";
+@import "./utilities/_info-tooltips.css";
+@import "./utilities/_shadow.css";
+
+/* ─── Vendor ─── */
+@import "./vendor/_highlight.css";
+@import "./vendor/_tippy.css";
+@import "./vendor/_tom-select.css";
