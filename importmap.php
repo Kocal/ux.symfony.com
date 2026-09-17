@@ -98,4 +98,6 @@ return [
     '@orchidjs/sifter' => ['version' => '1.1.0'],
     '@orchidjs/unicode-variants' => ['version' => '1.1.2'],
     'iconify-icon' => ['version' => '3.0.2'],
+    'embla-carousel' => ['version' => '8.6.0'],
+    'embla-carousel-autoplay' => ['version' => '8.6.0'],
 ];
