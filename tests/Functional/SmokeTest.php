@@ -38,7 +38,7 @@ class SmokeTest extends KernelTestCase
     }
 
     #[DataProvider('provideStaticUrls')]
-    public function testStaticPages(string $url)
+    public function testStaticPages(string $url): void
     {
         $this->browser()
             ->visit($url)
@@ -58,7 +58,7 @@ class SmokeTest extends KernelTestCase
         yield 'sitemap.xml' => ['/sitemap.xml'];
     }
 
-    public function testHomepageListsUiKits()
+    public function testHomepageListsUiKits(): void
     {
         $page = $this->browser()
             ->visit('/')
@@ -85,7 +85,7 @@ class SmokeTest extends KernelTestCase
     }
 
     #[DataProvider('providePackageUrls')]
-    public function testPackagePages(UxPackage $package)
+    public function testPackagePages(UxPackage $package): void
     {
         $this->browser()
             ->visit('/'.$package->getName())
@@ -102,7 +102,7 @@ class SmokeTest extends KernelTestCase
     }
 
     #[DataProvider('provideDemoUrls')]
-    public function testDemoPages(LiveDemo $demo)
+    public function testDemoPages(LiveDemo $demo): void
     {
         $router = self::bootKernel()->getContainer()->get('router');
         $url = $router->generate($demo->getRoute());

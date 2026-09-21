@@ -18,7 +18,7 @@ class RobotsTest extends KernelTestCase
 {
     use HasBrowser;
 
-    public function testSitemapContainsPages()
+    public function testSitemapContainsPages(): void
     {
         $browser = $this->browser([], [
             'HTTP_HOST' => 'ux.symfony.com',

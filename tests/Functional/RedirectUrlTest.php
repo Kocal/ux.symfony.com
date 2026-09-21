@@ -17,7 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class RedirectUrlTest extends WebTestCase
 {
     #[DataProvider('getRedirectionTests')]
-    public function testUrlRedirections(string $url, string $expectedUrl, int $expectedStatusCode)
+    public function testUrlRedirections(string $url, string $expectedUrl, int $expectedStatusCode): void
     {
         $client = self::createClient();
         $client->request('GET', $url);

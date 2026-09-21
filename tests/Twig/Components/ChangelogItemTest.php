@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
 
 class ChangelogItemTest extends TestCase
 {
-    public function testSetItem()
+    public function testSetItem(): void
     {
         $component = new ChangelogItem();
         $component->item = [
@@ -32,7 +32,7 @@ class ChangelogItemTest extends TestCase
     }
 
     #[DataProvider('provideContentValues')]
-    public function testFormatContent(string $body, string $expected)
+    public function testFormatContent(string $body, string $expected): void
     {
         $component = new ChangelogItem();
         $component->item = [

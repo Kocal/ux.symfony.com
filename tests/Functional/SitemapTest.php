@@ -21,7 +21,7 @@ class SitemapTest extends KernelTestCase
 {
     use HasBrowser;
 
-    public function testSitemapContainsPages()
+    public function testSitemapContainsPages(): void
     {
         $browser = $this->browser()
             ->visit('/sitemap.xml')

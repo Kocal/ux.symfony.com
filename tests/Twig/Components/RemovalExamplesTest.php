@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 final class RemovalExamplesTest extends TestCase
 {
-    public function testDefinesThreeRemovalExamplesWithTwoActions()
+    public function testDefinesThreeRemovalExamplesWithTwoActions(): void
     {
         $component = new RemovalExamples();
         $examples = $component->getExamples();

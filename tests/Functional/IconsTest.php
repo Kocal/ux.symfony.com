@@ -22,7 +22,7 @@ final class IconsTest extends KernelTestCase
 {
     use HasBrowser;
 
-    public function testCanViewIconFromHomepage()
+    public function testCanViewIconFromHomepage(): void
     {
         $this->browser()
             ->visit('/')
@@ -35,7 +35,7 @@ final class IconsTest extends KernelTestCase
         ;
     }
 
-    public function testCanViewIconIndex()
+    public function testCanViewIconIndex(): void
     {
         $this->browser()
             ->visit('/icons')
@@ -44,7 +44,7 @@ final class IconsTest extends KernelTestCase
         ;
     }
 
-    public function testIconsAreRenderedByTheWebComponentNotIconifysSvgEndpoint()
+    public function testIconsAreRenderedByTheWebComponentNotIconifysSvgEndpoint(): void
     {
         $this->browser()
             ->visit('/icons?set=lucide')

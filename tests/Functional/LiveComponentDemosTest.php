@@ -36,7 +36,7 @@ class LiveComponentDemosTest extends KernelTestCase
     }
 
     #[DataProvider('getSmokeTests')]
-    public function testDemoPagesAllLoad(LiveDemo $liveDemo)
+    public function testDemoPagesAllLoad(LiveDemo $liveDemo): void
     {
         $router = self::bootKernel()->getContainer()->get('router');
         $url = $router->generate($liveDemo->getRoute());
@@ -56,7 +56,7 @@ class LiveComponentDemosTest extends KernelTestCase
         }
     }
 
-    public function testLiveDownloadDocumentRoute()
+    public function testLiveDownloadDocumentRoute(): void
     {
         $this->browser()
             ->visit('/demos/live-component/live-download/live-components.md')
@@ -66,7 +66,7 @@ class LiveComponentDemosTest extends KernelTestCase
         ;
     }
 
-    public function testLiveDownloadDocumentRouteRejectsAnUnknownFilename()
+    public function testLiveDownloadDocumentRouteRejectsAnUnknownFilename(): void
     {
         $this->browser()
             ->visit('/demos/live-component/live-download/unknown.md')

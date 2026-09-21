@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 class RecipeFileTreeTest extends TestCase
 {
-    public function testItReturnsFileTree()
+    public function testItReturnsFileTree(): void
     {
         $fileTree = new RecipeFileTree();
         $files = $fileTree->getFiles();

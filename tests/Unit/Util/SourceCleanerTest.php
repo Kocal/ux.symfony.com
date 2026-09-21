@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 class SourceCleanerTest extends TestCase
 {
-    public function testItRemovesNamespaceAndPhpTag()
+    public function testItRemovesNamespaceAndPhpTag(): void
     {
         $source = <<<EOF
             <?php
@@ -37,7 +37,7 @@ class SourceCleanerTest extends TestCase
         $this->assertSame($expected, SourceCleaner::cleanupPhpFile($source));
     }
 
-    public function testItRemovesClass()
+    public function testItRemovesClass(): void
     {
         $source = <<<EOF
             <?php
@@ -65,7 +65,7 @@ class SourceCleanerTest extends TestCase
         $this->assertSame($expected, SourceCleaner::cleanupPhpFile($source, removeClass: true));
     }
 
-    public function testItRemovesSharedIndentationFromExtractedLines()
+    public function testItRemovesSharedIndentationFromExtractedLines(): void
     {
         $source = <<<'PHP'
                 #[LiveAction]
@@ -86,7 +86,7 @@ class SourceCleanerTest extends TestCase
         $this->assertSame($expected, SourceCleaner::cleanupPhpFile($source));
     }
 
-    public function testItExtractsTwigBlock()
+    public function testItExtractsTwigBlock(): void
     {
         $source = <<<EOF
             {% extends 'ux_packages/package.html.twig' %}
@@ -127,7 +127,7 @@ class SourceCleanerTest extends TestCase
         $this->assertSame($expected, SourceCleaner::extractTwigBlock($source, 'demo_content'));
     }
 
-    public function testItRemovesExcessHtml()
+    public function testItRemovesExcessHtml(): void
     {
         $input = <<<EOF
             <div class="p-4 markdown-container shadow-blur shadow-blur--rainbow mt-5 row" data-controller="markdown">

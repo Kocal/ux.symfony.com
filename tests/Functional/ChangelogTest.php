@@ -18,7 +18,7 @@ class ChangelogTest extends KernelTestCase
 {
     use HasBrowser;
 
-    public function testChangelogIsAccessible()
+    public function testChangelogIsAccessible(): void
     {
         $this->browser()
             ->visit('/changelog')

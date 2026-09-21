@@ -48,7 +48,7 @@ class GenerateLlmsFilesCommandTest extends KernelTestCase
         }
     }
 
-    public function testCommandGeneratesLlmsFilesInPublicDir()
+    public function testCommandGeneratesLlmsFilesInPublicDir(): void
     {
         $projectDir = self::getContainer()->getParameter('kernel.project_dir');
 
@@ -56,7 +56,7 @@ class GenerateLlmsFilesCommandTest extends KernelTestCase
         self::assertFileExists($projectDir.'/public/llms-full.txt');
     }
 
-    public function testCommandGeneratesMarkdownFilesInLlmsDir()
+    public function testCommandGeneratesMarkdownFilesInLlmsDir(): void
     {
         $llmsDir = self::getContainer()->getParameter('app.llms_dir');
 
@@ -86,7 +86,7 @@ class GenerateLlmsFilesCommandTest extends KernelTestCase
     }
 
     #[DataProvider('provideMarkdownUrls')]
-    public function testMarkdownIsAccessible(string $htmlUrl, string $mdUrl)
+    public function testMarkdownIsAccessible(string $htmlUrl, string $mdUrl): void
     {
         // .md URL suffix returns markdown
         $this->browser()
@@ -114,7 +114,7 @@ class GenerateLlmsFilesCommandTest extends KernelTestCase
     }
 
     #[DataProvider('provideUrlsWithoutMarkdown')]
-    public function testPagesWithoutMarkdownVariantDoNotSetVaryAccept(string $htmlUrl)
+    public function testPagesWithoutMarkdownVariantDoNotSetVaryAccept(string $htmlUrl): void
     {
         // No .md file exists for these URLs
         $this->browser()
@@ -137,7 +137,7 @@ class GenerateLlmsFilesCommandTest extends KernelTestCase
         yield 'support page' => ['/support'];
     }
 
-    public function testPathTraversalIsBlocked()
+    public function testPathTraversalIsBlocked(): void
     {
         $this->browser()
             ->visit('/../../etc/passwd.md')
