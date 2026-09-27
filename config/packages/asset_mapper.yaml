@@ -5,6 +5,7 @@ framework:
             assets/: ''
             vendor/symfony/ux-toolkit/kits/: '@symfony/ux-toolkit/kits'
             vendor/symfony/ux-toolkit/assets/: '@symfony/ux-toolkit/assets'
+            vendor/symfony/ux-inspector/assets/dist/: '@symfony/ux-inspector'
         excluded_patterns:
             - '*/assets/styles/**/_*.css'
             - '*/assets/styles/**/_*.scss'

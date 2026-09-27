@@ -1,0 +1,128 @@
+{% extends 'ux_packages/package.html.twig' %}
+
+{% block header %}
+    {{ include('_header.html.twig') }}
+{% endblock %}
+
+{% block package_header %}
+    <div class="[&>.PackageHeader]:bg-transparent [&>.PackageHeader]:text-body-text">
+        {% component PackageHeader with {
+            package: 'inspector',
+            eyebrowText: 'Symfony UX devtools',
+            demosUrl: '#demo',
+        } %}
+            {% block title_header %}
+                UX Inspector
+            {% endblock %}
+
+            {% block sub_content %}
+                Find every Stimulus controller, Live Component and Turbo frame. Inspect its state,
+                follow its relationships and trace the events moving through the page.
+            {% endblock %}
+        {% endcomponent %}
+    </div>
+
+    {{ include('ux_packages/inspector/_hero.html.twig') }}
+{% endblock %}
+
+{% block package_features %}
+    {% set inspector_features = [
+        {
+            icon: 'lucide:mouse-pointer-click',
+            iconColorClass: 'text-[#B4236A] dark:text-[#EB72AF]',
+            title: '<strong>Pick</strong> from the page',
+            description: 'Select a rendered element and jump straight to the component behind it.',
+        },
+        {
+            icon: 'lucide:refresh-cw',
+            iconColorClass: 'text-[#B4236A] dark:text-[#EB72AF]',
+            title: '<strong>Live</strong> state',
+            description: 'Watch values, props and attributes update while the application runs.',
+        },
+        {
+            icon: 'lucide:git-branch',
+            iconColorClass: 'text-[#B4236A] dark:text-[#EB72AF]',
+            title: 'See <strong>relations</strong>',
+            description: 'Follow parents, children, outlets and nested components in context.',
+        },
+        {
+            icon: 'lucide:radio',
+            iconColorClass: 'text-[#B4236A] dark:text-[#EB72AF]',
+            title: '<strong>Trace</strong> events',
+            description: 'Read dispatched and received events in the order they happen.',
+        },
+        {
+            icon: 'lucide:terminal',
+            iconColorClass: 'text-[#B4236A] dark:text-[#EB72AF]',
+            title: 'No <strong>build step</strong>',
+            description: 'Install the bundle and open the Inspector in your application.',
+        },
+    ] %}
+    <twig:FeaturesCluster
+        :items="inspector_features"
+        title="What UX Inspector reveals"
+        titleId="inspector-overview-title"
+        titleClass="font-normal"
+    />
+{% endblock %}
+
+{% block package_content %}
+    <twig:Package:Section tone="subtle">
+        <twig:Package:SectionHeading
+            eyebrow="Built for Symfony UX"
+            title="<span class='font-medium'>Every</span> controller<span class='font-medium'>,</span> component <span class='font-medium'>and</span> frame."
+        >
+            <p>
+                Stimulus values, Live Component props and Turbo frame state, side by side
+                in one panel while the application runs.
+            </p>
+        </twig:Package:SectionHeading>
+
+        <div class="grid gap-8 lg:grid-cols-3">
+            <twig:Package:RuntimeCoverage :package="covered[0]" :items="[
+                'Values and defaults',
+                'Targets and CSS classes',
+                'Actions and parameters',
+                'Outlets and nesting',
+                'Connection status',
+                'Controller events',
+            ]" />
+            <twig:Package:RuntimeCoverage :package="covered[1]" :items="[
+                'Props and parent props',
+                'Models and modifiers',
+                'Actions and arguments',
+                'Event listeners',
+                'Loading and polling',
+                'Parents and children',
+            ]" />
+            <twig:Package:RuntimeCoverage :package="covered[2]" :items="[
+                'Frame attributes',
+                'Loading and state',
+                'Links and forms',
+                'Nested frames',
+                'Fetch and render events',
+                'Stream actions',
+            ]" />
+        </div>
+    </twig:Package:Section>
+{% endblock %}
+
+{% block package_install %}
+    <twig:Package:Section tone="deep">
+        <twig:Package:SectionHeading centered title="Install <strong>{{ package.humanName }}</strong>." />
+        {{ include('ux_packages/_package_install.html.twig', {
+            package: package,
+        }) }}
+        <p class="mt-14 flex items-center justify-center gap-3 text-center text-xl text-body-text md:mt-16">
+            Type
+            <span class="flex gap-1.5">
+                {%- for key in ['u', 'x'] %}
+                    <kbd class="grid size-14 place-items-center rounded-xl border border-body-text/15 bg-linear-to-b from-body-text/10 to-body-text/6 pb-1 font-[system-ui] text-xl font-normal uppercase text-body-text shadow-[inset_0_-3px_0_color-mix(in_srgb,currentColor_12%,transparent),0_1px_2px_rgb(0_0_0/0.15)] dark:border-black/70 dark:shadow-[inset_0_-3px_0_rgb(0_0_0/0.55),0_1px_2px_rgb(0_0_0/0.35)]">{{ key }}</kbd>
+                {%- endfor %}
+            </span>
+            on any page to open the panel.
+        </p>
+    </twig:Package:Section>
+{% endblock %}
+
+{% block package_suggestions %}{% endblock %}

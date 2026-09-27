@@ -93,6 +93,21 @@ class UxPackageRepository
             ->setScreencastLink('https://symfonycasts.com/screencast/stimulus', 'More than 40 videos to master Stimulus.'),
 
             new UxPackage(
+                'inspector',
+                'Inspector',
+                'app_inspector',
+                '#0B0D10',
+                'Live debugging in the browser',
+                'Browser devtools for Stimulus controllers, Live Components and Turbo frames.',
+                'I need to debug why my Stimulus controller is not connecting.',
+                'inspector.svg',
+                isDevDependency: true,
+                gradient: 'linear-gradient(145deg, oklch(25% .006 270) 0%, oklch(19% .006 270) 100%)',
+                seoTitle: 'UX Inspector - Live debugging in the browser',
+                socialTitle: 'UX Inspector - Live debugging in the browser',
+            ),
+
+            new UxPackage(
                 'toolkit',
                 'Toolkit',
                 'app_toolkit',
