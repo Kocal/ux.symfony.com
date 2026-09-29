@@ -39,6 +39,7 @@
         "symfony/ux-cropperjs": "3.x-dev",
         "symfony/ux-dropzone": "3.x-dev",
         "symfony/ux-icons": "3.x-dev",
+        "symfony/ux-inspector": "3.x-dev",
         "symfony/ux-leaflet-map": "3.x-dev",
         "symfony/ux-live-component": "3.x-dev",
         "symfony/ux-map": "3.x-dev",
@@ -71,7 +72,7 @@
         "phpstan/phpstan-doctrine": "^2.0.28",
         "phpstan/phpstan-symfony": "^2.0.20",
         "phpunit/phpunit": "^13.3.1",
-        "playwright-php/playwright": "^1.4",
+        "playwright-php/playwright": "^1.5",
         "symfony/browser-kit": "8.1.*",
         "symfony/css-selector": "8.1.*",
         "symfony/debug-bundle": "8.1.*",
@@ -146,6 +147,7 @@
         "tailwind:build": [
             "@php bin/console tailwind:build --minify assets/styles/app.css",
             "@php bin/console tailwind:build --minify assets/styles/demos/live-memory.css",
+            "@php bin/console tailwind:build --minify assets/styles/demos/inspector.css",
             "@php bin/console tailwind:build --minify assets/styles/toolkit-common.css",
             "@php bin/console tailwind:build --minify assets/styles/toolkit-shadcn.css",
             "@php bin/console tailwind:build --minify assets/styles/toolkit-flowbite-4.css"
