@@ -8699,12 +8699,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ux-router.git",
-                "reference": "8553af00d28ce77496c609e8be14dbcf2533a275"
+                "reference": "b88292b225138cccc1ad132243bd25bfcd2e42ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ux-router/zipball/8553af00d28ce77496c609e8be14dbcf2533a275",
-                "reference": "8553af00d28ce77496c609e8be14dbcf2533a275",
+                "url": "https://api.github.com/repos/symfony/ux-router/zipball/b88292b225138cccc1ad132243bd25bfcd2e42ee",
+                "reference": "b88292b225138cccc1ad132243bd25bfcd2e42ee",
                 "shasum": ""
             },
             "require": {
@@ -8776,7 +8776,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-11T09:07:48+00:00"
+            "time": "2026-10-12T20:56:57+00:00"
         },
         {
             "name": "symfony/ux-toolkit",
