@@ -563,6 +563,15 @@
     "symfony/ux-chartjs": {
         "version": "v2.1.0"
     },
+    "symfony/ux-cloudinary-image": {
+        "version": "3.9999999",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.6",
+            "ref": "59a3e634ae39c5df4f8f5be18319730147cf95b2"
+        }
+    },
     "symfony/ux-cropperjs": {
         "version": "v2.1.1"
     },
