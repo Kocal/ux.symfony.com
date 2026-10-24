@@ -28,7 +28,7 @@ final class BlockSectionResolverTest extends KernelTestCase
         self::assertSame('login', $login->slug);
         self::assertSame('Login', $login->name);
         self::assertSame(
-            ['login-01', 'login-02'],
+            ['login-01', 'login-02', 'login-03', 'login-04', 'login-05'],
             array_map(static fn ($recipe) => $recipe->name, $login->recipes),
         );
     }

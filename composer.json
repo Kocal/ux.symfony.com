@@ -13,7 +13,7 @@
         "doctrine/orm": "^3.6.8",
         "intervention/image": "^2.7.2",
         "league/commonmark": "^2.10.0",
-        "phpstan/phpdoc-parser": "^2.3.5",
+        "phpstan/phpdoc-parser": "^2.3.6",
         "symfony/asset": "8.1.*",
         "symfony/asset-mapper": "8.1.*",
         "symfony/console": "8.1.*",
@@ -66,7 +66,7 @@
         "twig/intl-extra": "^3.26",
         "twig/markdown-extra": "^3.28",
         "twig/string-extra": "^3.24",
-        "twig/twig": "^3.29.0"
+        "twig/twig": "^3.30.0"
     },
     "require-dev": {
         "kocal/phpstan-symfony-ux": "^1.3",

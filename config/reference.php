@@ -687,7 +687,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         signing_algorithm?: scalar|Param|null, // Default: "sha256"
  *         routing?: array<string, array{ // Default: []
  *             service?: scalar|Param|null,
- *             secret?: scalar|Param|null, // The secret used to verify incoming request signatures. It must be set in production: with an empty value, requests from any sender are accepted. // Default: ""
+ *             secret?: scalar|Param|null, // The secret used to verify incoming request signatures. It must be set in production: with an empty value, depending on the parser, requests from any sender are accepted or every request is rejected. // Default: ""
  *         }>,
  *     },
  *     remote_event?: bool|array{ // RemoteEvent configuration
@@ -1311,6 +1311,14 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     },
  * }
  * @psalm-type UxToolkitConfig = array{
+ *     components?: array{ // Where "ux:install" installs the Twig components of recipes.
+ *         dir?: scalar|Param|null, // The directory TwigComponent loads anonymous components from, relative to the project directory. It must match your configuration: the Twig "default_path" followed by the TwigComponent "anonymous_template_directory". // Default: "templates/components"
+ *         subdirectory?: scalar|Param|null, // A subdirectory of "dir" to install the components in. Their names get it as a prefix, which the installer adds to the copied files, e.g. "<twig:ui:Button>" for "ui". // Default: null
+ *     },
+ *     controllers?: array{ // Where "ux:install" installs the Stimulus controllers of recipes.
+ *         dir?: scalar|Param|null, // The directory your Stimulus setup loads controllers from, relative to the project directory. It must match your configuration: an entry of "stimulus.controller_paths" with AssetMapper, the "controllersDir" option with Reprise, or the directory passed to "require.context()" with Webpack Encore. // Default: "assets/controllers"
+ *         subdirectory?: scalar|Param|null, // A subdirectory of "dir" to install the controllers in. Their identifiers get it as a prefix, which the installer adds to the copied files, e.g. "ui--dialog" for "ui". // Default: null
+ *     },
  *     preview?: bool|array{ // Wires the preview assets of kits into AssetMapper, Tailwind and the importmap.
  *         enabled?: bool|Param, // Default: false
  *         kits?: list<scalar|Param|null>,
